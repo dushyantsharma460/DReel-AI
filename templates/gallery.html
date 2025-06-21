@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Video Gallery | DReel AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="gallery-section">
+    <div class="container">
+        <h2 class="gallery-title">Video Gallery</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="reel-card">
+                    <div class="reel-thumbnail">
+                        <img src="{{ url_for('static', filename='1.jpg') }}" alt="Summer Vibes">
+                        <div class="play-overlay">
+                            <i class="fas fa-play fa-3x text-white"></i>
+                        </div>
+                    </div>
+                    <div class="reel-info">
+                        <h5>Summer Vibes</h5>
+                        <p class="text-muted">2:45 • 15K views</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="reel-card">
+                    <div class="reel-thumbnail">
+                        <img src="{{ url_for('static', filename='2.jpg') }}" alt="Urban Beats">
+                        <div class="play-overlay">
+                            <i class="fas fa-play fa-3x text-white"></i>
+                        </div>
+                    </div>
+                    <div class="reel-info">
+                        <h5>Urban Beats</h5>
+                        <p class="text-muted">3:12 • 28K views</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="reel-card">
+                    <div class="reel-thumbnail">
+                        <img src="{{ url_for('static', filename='3.jpg') }}" alt="Concert Night">
+                        <div class="play-overlay">
+                            <i class="fas fa-play fa-3x text-white"></i>
+                        </div>
+                    </div>
+                    <div class="reel-info">
+                        <h5>Concert Night</h5>
+                        <p class="text-muted">4:30 • 42K views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

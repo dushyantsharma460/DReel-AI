@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Project | DReel AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="upload-section">
+    <div class="container">
+        <div class="upload-container">
+            <h2 class="upload-title">Create New Reel</h2>
+            <p>Upload your media files to get started</p>
+            
+            <form action="/create" method="post" enctype="multipart/form-data">
+                <div id="fileInputs">
+                    <div class="file-input-group">
+                        <input type="file" class="form-control file-input" name="file1" accept="video/*,audio/*">
+                        <input name="uuid" type="hidden" value="{{myid}}">
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-outline-light mt-2 add-file-btn" onclick="addFileInput()">
+                    <i class="fas fa-plus"></i> Add Another File
+                </button>
+                
+                <div class="mt-4">
+                    <textarea class="form-control text-input" name="text" placeholder="Add captions or lyrics (optional)"></textarea>
+                </div>
+                
+                <button type="submit" class="btn submit-btn mt-4">
+                    <i class="fas fa-magic"></i> Generate Reel
+                </button> 
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function addFileInput() {
+        const container = document.getElementById('fileInputs');
+        const newInput = document.createElement('div');
+        newInput.className = 'file-input-group mt-2';
+        newInput.innerHTML = `<input type="file" class="form-control file-input" name="file${container.children.length + 1}" accept="video/*,audio/*">`;
+        container.appendChild(newInput);
+    }
+</script>
+{% endblock %}

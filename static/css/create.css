@@ -1,0 +1,65 @@
+.upload-section {
+    padding: 4rem 0;
+}
+
+.upload-container {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 2px dashed rgba(106, 17, 203, 0.5);
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+    border-color: var(--accent);
+    background: rgba(106, 17, 203, 0.1);
+}
+
+.upload-title {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.file-input-group {
+    margin-bottom: 1rem;
+}
+
+.file-input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+}
+
+.text-input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    min-height: 150px;
+}
+
+.submit-btn {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border: none;
+    width: 100%;
+    padding: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.3);
+}
+
+.add-file-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.add-file-btn:hover {
+    background: var(--accent);
+    color: white;
+}

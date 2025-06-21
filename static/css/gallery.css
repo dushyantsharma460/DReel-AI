@@ -1,0 +1,77 @@
+.gallery-section {
+    padding: 4rem 0;
+}
+
+.gallery-title {
+    color: var(--accent);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.reel-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(106, 17, 203, 0.2);
+}
+
+.reel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.2);
+}
+
+.reel-thumbnail {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.reel-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.reel-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.reel-info {
+    padding: 1rem;
+}
+
+.reel-info h5 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.reel-info p {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .reel-card {
+        margin-bottom: 1.5rem;
+    }
+}   
