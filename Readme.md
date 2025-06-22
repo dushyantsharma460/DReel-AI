@@ -27,7 +27,7 @@ DReel AI is an innovative web application that transforms your photos into engag
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/dreel-ai.git
+   git clone https://github.com/dushyantsharma460/DReel-AI.git
    cd dreel-ai
 Install dependencies:
 
