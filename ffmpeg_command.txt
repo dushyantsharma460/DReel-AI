@@ -1,3 +1,7 @@
-ffmpeg -f concat -safe 0 -i user_uploads/b3c16549-4eb6-11f0-85db-e4a8dff0f5bf/input.txt -i user_uploads/
-11af8e90-2c16-11f0-8d78-ad551e1c593a/audio.mp3 -vf "scale=1080:1920: force_original_aspect_ratio=decrease,
-pad=1080:1920: (ow-iw)/2: (oh-ih)/2:black" -c:v libx264 -c:a aac -shortest -r 30 -pix_fmt yuv420p reel.mp4
+<-- Use this below command for generate the reel give path for reel and input folder so that reel generate-->
+<-- Use reel size photo to make the proper image -->
+<-- For reel generation we use ffmpeg libary-->
+
+<-- Use this proper command in your code-->
+
+ffmpeg -f concat -safe 0 -i user_upload/f0cb0ca4-4f62-11f0-81be-e4a8dff0f5bf/input.txt -i user_upload/f0cb0ca4-4f62-11f0-81be-e4a8dff0f5bf/audio.mp3 -vf "scale=1080:1920: force_original_aspect_ratio=decrease, pad=1080:1920: (ow-iw)/2: (oh-ih)/2:black" -c:v libx264 -c:a aac -shortest -r 30 -pix_fmt yuv420p static/reels/reel.mp4

@@ -59,4 +59,22 @@
         </div>
     </div>
 </section>
+
+<!-- New Dynamic Reels Section -->
+<section class="dynamic-reels-section">
+    <div class="container">
+        <div class="dynamic-reels-header">
+            <h3 class="dynamic-reels-title">AI Generated Reels</h3>
+        </div>
+        
+        <div class="gallery-grid">
+            {% for reel in reels %}
+            <div class="video-wrapper">
+                <video src="/static/reels/{{reel}}" controls></video>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
 {% endblock %}

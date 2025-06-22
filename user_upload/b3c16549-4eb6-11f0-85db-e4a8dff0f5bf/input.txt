@@ -1,4 +1,0 @@
-file 'user_upload/b3c16549-4eb6-11f0-85db-e4a8dff0f5bf/1.jpg.jpg'
-duration 1
-file 'user_upload/b3c16549-4eb6-11f0-85db-e4a8dff0f5bf/2.jpg.jpg'
-duration 1
