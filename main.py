@@ -77,39 +77,44 @@ def home():
 
 # Use when both option want upload + Generate
 
-@app.route("/create" , methods=['GET','POST'])
+@app.route("/create", methods=['GET', 'POST'])
 def create():
     myid = uuid.uuid1()
     if request.method == "POST":
         req_id = request.form.get("uuid")
         audio_option = request.form.get("audioOption")
         
+        # Create the upload directory if it doesn't exist
+        upload_dir = os.path.join(app.config['UPLOAD_FOLDER'], req_id)
+        os.makedirs(upload_dir, exist_ok=True)  # This creates the directory if it doesn't exist
+        
         # Handle text description if AI audio is selected
         if audio_option == 'ai':
             desc = request.form.get("text")
-            with open(os.path.join(app.config['UPLOAD_FOLDER'], req_id, "desc.txt"), "w") as f:
-                f.write(desc)
+            if desc:  # Only create desc.txt if there's text
+                with open(os.path.join(upload_dir, "desc.txt"), "w") as f:
+                    f.write(desc)
+        
         # Handle audio file upload if that option is selected
-        else:
+        elif audio_option == 'upload':
             audio_file = request.files.get("audioFile")
-            if audio_file:
+            if audio_file and audio_file.filename != '':
                 filename = secure_filename(audio_file.filename)
-                os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], req_id), exist_ok=True)
-                audio_file.save(os.path.join(app.config['UPLOAD_FOLDER'], req_id, "audio.mp3"))
+                audio_file.save(os.path.join(upload_dir, "audio.mp3"))
 
         # Process image uploads
         input_files = []
         for key, file in request.files.items():
-            if key.startswith('file') and file:
+            if key.startswith('file') and file and file.filename != '':
                 filename = secure_filename(file.filename)
-                os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], req_id), exist_ok=True)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], req_id, filename))
+                file.save(os.path.join(upload_dir, filename))
                 input_files.append(filename)
 
-        # Create input.txt for FFmpeg
-        for fl in input_files:
-            with open(os.path.join(app.config['UPLOAD_FOLDER'], req_id, "input.txt"), "a") as f:
-                f.write(f"file '{fl}'\nduration 1\n")
+        # Create input.txt for FFmpeg if we have files
+        if input_files:
+            with open(os.path.join(upload_dir, "input.txt"), "w") as f:
+                for fl in input_files:
+                    f.write(f"file '{fl}'\nduration 1\n")
 
     return render_template("create.html", myid=myid)
 
