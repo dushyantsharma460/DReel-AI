@@ -47,7 +47,8 @@ Run the application:
 
 bash
 python app.py
-Access the web interface at http://localhost:5000
+Access the web interface at http://dreelai:4600/
+If not working contact me.
 
 Requirements
 Python 3.7+
