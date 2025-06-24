@@ -128,4 +128,4 @@ def gallery():
     # Now pass it to template
     return render_template("gallery.html",reels = reels)
 
-app.run(debug=True)
+app.run(port=4600,debug=True,host="DReelAI")
